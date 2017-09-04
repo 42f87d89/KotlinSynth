@@ -21,7 +21,7 @@ fun initWindow() {
         throw IllegalStateException("Unable to initialize GLFW")
 
     // Create the window
-    window = GLFW.glfwCreateWindow(300, 300, "Hello World!", 0, 0)
+    window = GLFW.glfwCreateWindow(300, 300, "Hit Some Keys!", 0, 0)
     GLFW.glfwShowWindow(window)
 }
 
