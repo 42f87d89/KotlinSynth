@@ -1,7 +1,7 @@
 import org.lwjgl.glfw.GLFW
 
 var window: Long = 0
-var freqs: Array<Float> = Array(32) { 0f }
+var freqs: Array<Float> = Array(64) { 0f }
 
 fun main(args: Array<String>) {
     initWindow()
@@ -26,26 +26,37 @@ fun initWindow() {
 }
 
 val keyMap = arrayOf(
-        Pair(arrayOf(GLFW.GLFW_KEY_1), 440f * Math.pow(2.0, -3.0 / 12).toFloat()),
-        Pair(arrayOf(GLFW.GLFW_KEY_Q), 440f * Math.pow(2.0, -2.0 / 12).toFloat()),
-        Pair(arrayOf(GLFW.GLFW_KEY_A, GLFW.GLFW_KEY_2), 440f * Math.pow(2.0, -1.0 / 12).toFloat()),
-        Pair(arrayOf(GLFW.GLFW_KEY_Z, GLFW.GLFW_KEY_W), 440f),
-        Pair(arrayOf(GLFW.GLFW_KEY_S, GLFW.GLFW_KEY_3), 440f * Math.pow(2.0, 1.0 / 12).toFloat()),
-        Pair(arrayOf(GLFW.GLFW_KEY_X, GLFW.GLFW_KEY_E), 440f * Math.pow(2.0, 2.0 / 12).toFloat()),
-        Pair(arrayOf(GLFW.GLFW_KEY_D, GLFW.GLFW_KEY_4), 440f * Math.pow(2.0, 3.0 / 12).toFloat()),
-        Pair(arrayOf(GLFW.GLFW_KEY_C, GLFW.GLFW_KEY_R), 440f * Math.pow(2.0, 4.0 / 12).toFloat()),
-        Pair(arrayOf(GLFW.GLFW_KEY_F, GLFW.GLFW_KEY_5), 440f * Math.pow(2.0, 5.0 / 12).toFloat()),
-        Pair(arrayOf(GLFW.GLFW_KEY_V, GLFW.GLFW_KEY_T), 440f * Math.pow(2.0, 6.0 / 12).toFloat()),
-        Pair(arrayOf(GLFW.GLFW_KEY_G, GLFW.GLFW_KEY_6), 440f * Math.pow(2.0, 7.0 / 12).toFloat()),
-        Pair(arrayOf(GLFW.GLFW_KEY_B, GLFW.GLFW_KEY_Y), 440f * Math.pow(2.0, 8.0 / 12).toFloat()),
-        Pair(arrayOf(GLFW.GLFW_KEY_H, GLFW.GLFW_KEY_7), 440f * Math.pow(2.0, 9.0 / 12).toFloat()),
-        Pair(arrayOf(GLFW.GLFW_KEY_N, GLFW.GLFW_KEY_U), 440f * Math.pow(2.0, 10.0 / 12).toFloat()),
-        Pair(arrayOf(GLFW.GLFW_KEY_J, GLFW.GLFW_KEY_8), 440f * Math.pow(2.0, 11.0 / 12).toFloat()),
-        Pair(arrayOf(GLFW.GLFW_KEY_M, GLFW.GLFW_KEY_I), 440f * Math.pow(2.0, 12.0 / 12).toFloat()),
-        Pair(arrayOf(GLFW.GLFW_KEY_K, GLFW.GLFW_KEY_9), 440f * Math.pow(2.0, 13.0 / 12).toFloat()),
-        Pair(arrayOf(GLFW.GLFW_KEY_COMMA, GLFW.GLFW_KEY_O), 440f * Math.pow(2.0, 14.0 / 12).toFloat()),
-        Pair(arrayOf(GLFW.GLFW_KEY_L, GLFW.GLFW_KEY_0), 440f * Math.pow(2.0, 15.0 / 12).toFloat()),
-        Pair(arrayOf(GLFW.GLFW_KEY_PERIOD, GLFW.GLFW_KEY_P), 440f * Math.pow(2.0, 16.0 / 12).toFloat()))
+        Pair(arrayOf(GLFW.GLFW_KEY_A), 110f * Math.pow(2.0, 11.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_Z), 220f),
+        Pair(arrayOf(GLFW.GLFW_KEY_S), 220f * Math.pow(2.0, 1.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_X), 220f * Math.pow(2.0, 2.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_D), 220f * Math.pow(2.0, 3.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_C), 220f * Math.pow(2.0, 4.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_F), 220f * Math.pow(2.0, 5.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_V), 220f * Math.pow(2.0, 6.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_G), 220f * Math.pow(2.0, 7.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_B), 220f * Math.pow(2.0, 8.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_1, GLFW.GLFW_KEY_H), 220f * Math.pow(2.0, 9.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_Q, GLFW.GLFW_KEY_N), 220f * Math.pow(2.0, 10.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_2, GLFW.GLFW_KEY_J), 220f * Math.pow(2.0, 11.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_W, GLFW.GLFW_KEY_M), 440f),
+        Pair(arrayOf(GLFW.GLFW_KEY_3, GLFW.GLFW_KEY_K), 440f * Math.pow(2.0, 1.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_E, GLFW.GLFW_KEY_COMMA), 440f * Math.pow(2.0, 2.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_4, GLFW.GLFW_KEY_L), 440f * Math.pow(2.0, 3.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_R, GLFW.GLFW_KEY_PERIOD), 440f * Math.pow(2.0, 4.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_5), 440f * Math.pow(2.0, 5.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_T), 440f * Math.pow(2.0, 6.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_6), 440f * Math.pow(2.0, 7.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_Y), 440f * Math.pow(2.0, 8.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_7), 440f * Math.pow(2.0, 9.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_U), 440f * Math.pow(2.0, 10.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_8), 440f * Math.pow(2.0, 11.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_I), 880f),
+        Pair(arrayOf(GLFW.GLFW_KEY_9), 880f * Math.pow(2.0, 1.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_O), 880f * Math.pow(2.0, 2.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_0), 880f * Math.pow(2.0, 3.0 / 12).toFloat()),
+        Pair(arrayOf(GLFW.GLFW_KEY_P), 880f * Math.pow(2.0, 4.0 / 12).toFloat()))
+
 
 fun getInputs() {
     for ((i, e) in keyMap.withIndex()) {

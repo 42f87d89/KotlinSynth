@@ -18,7 +18,7 @@ class Synth// select audio format parameters
 
     fun write(frequencies: Array<Float>, generator: (Float, Double) -> Double) {
         for (i in 0 until buffer.size) {
-            val s = frequencies.sumBy { Math.round(generator(it, t / af.sampleRate.toDouble()) * 32).toInt() };
+            val s = frequencies.sumBy { Math.round(generator(it, t / af.sampleRate.toDouble()) * 16).toInt() }
             buffer[i] = s.toByte()
             t++
         }
